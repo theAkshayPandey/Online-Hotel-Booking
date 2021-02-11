@@ -1,0 +1,316 @@
+<div class="main_Wallpaper">
+    <div class="container">
+
+
+        <div class="relative">
+            <div class="padding_data" style="margin-bottom:43px;padding-bottom: 30px;margin-top: 20px;">
+                <div class="hotelHeader row">
+
+                    <div class="image-slider col-5" style="width: 500px;min-width: 560px;">
+                        <ng-image-slider [images]="imageObject" #nav [imageSize]="{width: '538', height: 350,space: 1}">
+                        </ng-image-slider>
+
+                    </div>
+
+                    <div class="col-3" style="margin-right:0px; margin-left: 0px;left: -2px;">
+                        <div class="row">
+                            <div class="col" style="padding-left:0px;padding-top:0px ;top: -4px;">
+                                <div style="margin: 0px; margin-top: 5px;">
+                                    <img class="imgThumb" [src]="secondry_image_1" (error)="onSetImg1($event)" alt="" srcset="">
+                                </div>
+
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col" style="padding-left:0px;">
+                                <div class="row">
+                                    <div class="col-6" style="margin: 0px; margin-top: 5px;">
+                                        <img class="imgNew" [src]="secondry_image_2" (error)="onSetImg2($event)" alt="" srcset="">
+                                    </div>
+                                    <div class="col-6" style="margin: 0px; margin-top: 5px;">
+                                        <!-- <img class="imgNew" src="assets/images/hotelimg/viewmap.png" alt="" srcset=""> -->
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-3">
+                        <div class="border">
+                            <div class="row " style="padding: 10px;">
+
+
+
+                                <div class="left-data col-12">
+                                <span style="font-weight: bold;">Room Selected :</span>
+                                
+                                <div class="rightdata" style="float: right;">
+                                    <ul style="padding: 0px;
+                                    padding-right: 56px;">
+                                        <li  class="roomselect" *ngFor="let obj of select_data" >
+                                            {{obj.room_name | titlecase }}  
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                   
+
+                                </div>
+
+
+                                <div class="left-data col-12">
+                                    <span style="font-weight: bold;">Total Cost :</span>
+                                    <div class="rightdata" style="float: right;">
+                                    <ul style="padding: 0px;
+                                    padding-right: 56px;">
+                                        <li >
+                                            {{totalcost}} INR
+                                        </li>
+                                    </ul>
+                                </div>
+                                </div>
+
+
+                                <div class="left-data col-12">
+                                    <span style="font-weight: bold;">No of Guest :</span>
+                                    <div class="rightdata" style="float: right;">
+                                        <ul style="padding: 0px; padding-right: 56px;">
+                                            <li >
+                                                {{no_of_guest}}
+                                            </li>
+                                        </ul>
+                                        </div>
+                                </div>
+
+                               
+
+
+                            </div>
+
+                            <p style="border-top: 1px #ddd solid;align-items: center;padding: 8px 10px;">
+
+                               
+
+                                <span>
+                                    <button class="btn btn-primary" style="margin-left:62px ;" (click)="SendDataToBooking()">
+                                        BOOK THIS NOW
+                                    </button>
+                                </span>
+                            </p>
+
+                        </div>
+                        <div class="border">
+                            <div class="row" style="padding: 9px 15px;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="userev col-8" *ngIf="hoteldata.hotelrating">
+
+                                            <p style="font-size: 13px;margin: 0px;">Hotel Reviews</p>
+                                            <p style="font-size: 10px;margin: 0px;"></p>
+                                        </div>
+
+                                        <div class="userev col-4">
+
+                                            <p class="ratingGeneric" style="margin: 0px;" *ngIf="hoteldata.hotelrating">
+                                                <span style="font-size: 12px;">{{hoteldata.hotelrating}}</span>
+                                                <span style="font-size: 10px;" *ngIf="hoteldata.hotelrating >3;else elseBlock">Excellent</span>
+                                                <ng-template #elseBlock> <span style="font-size: 12px;">Good</span> </ng-template>
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="hotelName" style="padding:16px;margin-top:10px ;">
+                        <div class="flexOne">
+                            <div>
+                                <span style="font-size: 26px;font-weight: 900;"> {{hoteldata.hotelname}} {{hoteldata.hotellocation}} ,{{hoteldata.hotelsublocation}}
+                                </span>
+                                <span>
+                                    <!-- <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block" >
+                                    <li [ngClass]="{'selected': (star <= selectedValue)}">
+                                        <i class="fa fa-star">&#9733;</i>
+                                    </li> 
+                                     </ul> -->
+                                </span>
+
+                                <div>
+                                    <span style="font-size: 16px;">{{hoteldata.hoteladdress}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <div class="container bottom35">
+                        <div class="aboutProp">
+                            <div class="aboutProp__header">
+                                <div class="aboutProp__left" *ngIf="abouthotel.checkintime || abouthotel.description">
+                                    <p class="latoBlack font20 blackText appendBottom5 ptg">About The Hotel</p>
+                                    <p class="font15 appendBottom12" *ngIf="abouthotel.checkintime">CHECK IN 
+                                        <span class="latoBlack">{{abouthotel.checkintime}}</span>
+                                        <span class="dot">--</span>CHECK OUT 
+                                        <span class="latoBlack">{{abouthotel.checkoutime}}</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="aboutProp__desc">
+                                <div class="lineHight20 aboutDesc">
+                                    <span>
+                                        <p class="ptg">{{abouthotel.description}}</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+
+                <div style="border-bottom: black solid 1px;margin-top: 20px;">
+                    <ul class="nav-ul">
+                        <li class="nav-li">ROOMS</li>
+                        <li class="nav-li">FACILITIES</li>
+                        <!-- <li class="nav-li">LOCATION</li> -->
+                        <!-- <li class="nav-li">RATINGS AND REVIEWS</li> -->
+                    </ul>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+        <div class="room-type">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="ROOM_TYPE">
+                    <th mat-header-cell *matHeaderCellDef> ROOM TYPE </th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="table-div-data">
+                            <h2>{{element.room_name}}</h2>
+                                
+                            <img class="imgtable" [src]="element.roomthumbimg" alt="No images" (error) ="onImgError($event)" srcset="">
+
+                            <ul class="appendtop">
+                                <li class="qwe" *ngFor="let rdetail of element.roomdetails">&middot; {{rdetail.roomfeatures}}</li>
+                            </ul>
+
+                        </div>
+
+
+                    </td>
+
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="INCLUDED_IN_THIS_PRICE">
+                    <th mat-header-cell *matHeaderCellDef class="included_room"> INCLUDED IN THIS PRICE</th>
+                    <td mat-cell *matCellDef="let element" class="included_room">
+                        <div class="room_included">
+
+                            <ul class="appendtop">
+                                <li class="li-included">&#10003; {{element.included_facility}}</li>
+                            </ul>
+
+
+
+
+
+
+
+                        </div>
+
+
+                    </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="PRICE">
+                    <th mat-header-cell *matHeaderCellDef> PRICE </th>
+                    <td mat-cell *matCellDef="let element">
+
+                        <div class="room_included">
+                            <div style="text-align:left;display:inline-block;float:left;">
+                                <p style="margin:0 0 5px 0;font-size: 25px;">&#8377;  {{element.room_price}}</p>
+                                <p style="margin:0px;">Per Night</p>
+                            </div>
+
+                            <div style="  display:inline-block;float: right;">
+                                <button class="rounded-pill btn-primary" style=" pointer-events: none;" disabled>SELECTED</button>
+                            </div>
+
+                        </div>
+
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+
+
+        <div class="facalities">
+
+            <div class="fachotnam">
+                <h2>Facilities at {{hoteldata.hotelname}} {{hoteldata.hotellocation}} ,{{hoteldata.hotelsublocation}}</h2>
+
+            </div>
+
+            <div  class="bscfac" style="border: black solid 1px;margin-top: 20px;">
+                <ul class="nav-ul">
+                    <li class="fac-li" *ngFor= "let obj of hoteldata.hotelfacility"> {{obj}}</li>
+
+                </ul>
+            </div>
+            
+            <div class="multifacgrp">
+                
+                
+                <div class="facgrp" style="margin-top: 20px;" *ngFor="let hf of hotelfacility">
+                    <p class="latoBold font12 blackText capText appendBottom15">{{hf.facilityname}}</p>
+                    <ul class="facilityLists font13 nav-ul">
+                        <li *ngFor="let ele of hf.facilitydesc">
+                            <span class="facilityName">&#10003; {{ele}}</span>
+                        </li>
+                    </ul>
+                </div> 
+            </div>
+        </div>
+
+
+
+
+
+        <div class="hotel-location">
+
+            
+
+        </div>
+
+    </div>

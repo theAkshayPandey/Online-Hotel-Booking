@@ -1,0 +1,222 @@
+<section class="section-features js--section-features noimage" id="features">
+ 
+    
+
+    <div class="search-bar-menu">
+ 
+    <div class="hcat-1">
+        <h2 class="title"> Find deals on hotels, homes and much more...</h2>
+            <p>From cosy country homes to funky city flats.
+        </p>
+    </div>
+
+    <!-- -->
+    <form action="" name="searchForm" class="search-data"  [formGroup]="searchForm" (ngSubmit)="searchForm.valid && onSubmit()" >
+
+        
+        <div class="hcat">
+            <mat-form-field appearance="fill" [style.width.px]=327 >
+                <mat-label>Enter Destination</mat-label>
+                <input [(ngModel)]="str" name="str"
+                (ngModelChange)="gethotelLocationList($event)"
+                matInput
+                formControlName="autoComponent"
+                [matAutocomplete]="auto">
+
+
+                <mat-error *ngIf="searchForm.controls.autoComponent.errors?.errmsg">{{searchForm.controls.autoComponent.errors.errmsg}}
+                </mat-error> 
+
+
+
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions" [value]="option">
+                    {{option}}
+                </mat-option>
+                </mat-autocomplete>
+
+            </mat-form-field>
+
+
+            <mat-form-field appearance="fill" [style.width.px]=150 >
+                <mat-label>Checkin</mat-label>
+                <input matInput (dateChange)="updateCalcs()"  [matDatepicker]="picker" [min]="minDate" [max]="maxDate"  formControlName="checkin">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="searchForm.controls.checkin.errors?.errmsg">{{searchForm.controls.checkin.errors.errmsg}}
+                </mat-error> 
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" [style.width.px]=150 >
+
+                <mat-label>Checkout</mat-label>
+                <input matInput   [matDatepicker]="picker1" [min]="minDatep" [max]="maxDate" formControlName="checkout" >
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+                <mat-error *ngIf="searchForm.controls.checkout.errors?.errmsg">{{searchForm.controls.checkout.errors.errmsg}}
+                </mat-error> 
+            </mat-form-field>
+            <!-- (selectionChange)="someMethod($event.value)" -->
+
+            <mat-form-field appearance="fill" [style.width.px]=95>
+                <mat-label>Guest</mat-label>
+                <mat-select  matInput name="guestNo" formControlName="guestNo">
+                    <mat-option *ngFor="let guest of guestSelect" [value]="guest.value">{{guest.noOfGuest}}</mat-option>
+                </mat-select>
+                
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" [style.width.px]=95>
+                <mat-label>Room</mat-label>
+                <mat-select matInput   name="mySelect" formControlName="roomnNo">
+                    <mat-option *ngFor="let room of roomSelect" [value]="room.value">{{room.noOfRoom}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="searchForm.controls.roomnNo.errors?.errmsg">{{searchForm.controls.roomnNo.errors.errmsg}}
+                </mat-error> 
+                
+            </mat-form-field>
+
+
+
+
+
+
+
+
+            <button  mat-raised-button color="primary" type="submit" class="mat-button-data"  >Search</button>
+            
+       
+            <div class="error-message" style="color: red; background-color: rgb(232, 234, 236);">
+
+            </div>
+
+
+        </div>
+    
+      
+
+    </form>
+    
+</div>
+
+
+
+</section>
+
+
+<section class="section-steps" id="works">
+    
+    <div class="postion-down">
+    <div class="grid-container1">
+        <h2 class="titlenew">How friendly is Hotelkat ?</h2>
+    </div>
+    
+    <div class="grid-container">
+        
+
+        <div class="grid-item">
+            <div class="img12"><img src="assets\images\icn1.png" alt="" srcset=""></div>
+            <h3 class="card-title">Local IDs Allowed</h3>
+                Seriously. Even if you have local ID you will be warmly welcomed
+        </div>   
+     
+        <div class="grid-item">
+            <div class="img13"><img src="assets\images\icn2.png" alt="" srcset=""></div>
+            <h3 class="card-title">Safe and Secure</h3>
+            Thousands of customer and counting, with not a single incident counted. It works!
+        </div>
+
+        <div class="grid-item">
+            <div class="img14"><img src="assets\images\icn3.png" alt="" srcset=""></div>
+            <h3 class="card-title">Family friendly</h3>
+            Ya ya, your budget is too low or you are in a hurry. We thought of that too.
+        </div>
+    </div>
+</div>
+
+</section>
+
+<section class="section-steps" id="catback" style="display:none;">
+    <div class="grid-container">
+        <h2 class="titlenew">Why trust Uncle ?</h2>
+    </div>
+
+
+    <div class="grid-container2">
+    
+    <div class="grid-item">
+
+        <div class='container2'>
+                <div class="img-icon-new">
+                    <img src='assets\images\icn4.png' class='iconDetails'>
+                </div>  
+                
+                <div style='margin-left:60px;'>
+                    <h2 style="margin: 0px;">1,14 ,782</h2>
+                    <div style="font-size:20px">Couples served till today</div>
+                </div>
+        </div>
+
+        <div class='container2'>
+            <div class="img-icon-new">
+                <img src='assets\images\icn5.png' class='iconDetails'>
+            </div>  
+            
+            <div style='margin-left:60px;'>
+                <h2 style="margin: 0px;">1000+</h2>
+                <div style="font-size:20px">Partnered hotels</div>
+
+            </div>
+         </div>
+
+        <div class='container2' >
+            <div class="img-icon-new">
+                <img src='assets\images\icn6.png' class='iconDetails'>
+            </div>  
+            
+            <div style='margin-left:60px;'>
+                <h2 style="margin: 0px;">40+</h2>
+                <div style="font-size:20px">Cities</div>
+            </div>
+        </div>
+
+        </div>
+
+        <div class="grid-item" >
+            <h3 class="card-title">Uncle is commonly asked</h3>
+            
+            <div class="exp-space">
+            <mat-expansion-panel hideToggle (click)="click()">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <p style="margin: auto;font-size: inherit; ">Are the StayUncle hotels safe? </p>
+                    <mat-icon>{{icon  ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mat-icon>
+        
+                    
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>Every hotel that gets listed on Stay Uncle goes through a rigorous quality check which ensures that the hotels are completely safe and secure. The hotels are also completely aware of StayUncle’s nature of business.</p>
+              </mat-expansion-panel>
+            </div>
+              <div class="exp-space">
+
+              <mat-expansion-panel hideToggle (click)="click()">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <p style="margin: auto; font-size: inherit;">Do both the partners need to carry their IDs </p>
+                    <mat-icon>{{icon  ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mat-icon>
+        
+                    
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>Yes, Both the partners should be 18 yrs+ and should be carrying either original Aadhar Card, Voter Id, Driving Licence or Passport. No photocopies, or soft copies will be allowed on checkin.</p>
+              </mat-expansion-panel>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</section>
+

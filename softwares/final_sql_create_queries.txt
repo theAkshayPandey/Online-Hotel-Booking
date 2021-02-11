@@ -1,0 +1,122 @@
+Create QUEries
+
+
+Hotel
+
+
+ CREATE TABLE `hotel` (
+  `hotel_id` int NOT NULL AUTO_INCREMENT,
+  `hotel_name` varchar(50) DEFAULT NULL,
+  `hotel_location` varchar(50) DEFAULT NULL,
+  `hotel_sub_location` varchar(50) DEFAULT NULL,
+  `hotel_facilities` varchar(100) DEFAULT NULL,
+  `hotel_rating` varchar(20) DEFAULT NULL,
+  `hotel_type` varchar(100) DEFAULT NULL,
+  `address` varchar(200) DEFAULT NULL,
+  `hotel_thumb_image` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`hotel_id`)
+);
+
+
+About Hotel
+
+CREATE TABLE `abouthotel` (
+`id` int NOT NULL AUTO_INCREMENT,
+`hotel_id` int DEFAULT NULL,
+`description` varchar(2000) DEFAULT NULL,
+`checkin_time` varchar(200) DEFAULT NULL,
+`checkout_time` varchar(200) DEFAULT NULL,
+ PRIMARY KEY (`id`),
+ FOREIGN KEY (`hotel_id`) REFERENCES `hotel` (`hotel_id`)
+);
+
+
+Hotel Images
+
+
+CREATE TABLE `hotelimages` (
+`id` int NOT NULL AUTO_INCREMENT,
+`hotel_id` int DEFAULT NULL,
+`image_path` varchar(200) DEFAULT NULL,
+ PRIMARY KEY (`id`),
+ FOREIGN KEY (`hotel_id`) REFERENCES `hotel` (`hotel_id`)
+);
+
+
+Hotel Facility
+
+CREATE TABLE `hotelfacility` (
+`id` int NOT NULL AUTO_INCREMENT,
+`hotel_id` int DEFAULT NULL,
+`facility_name` varchar(50) DEFAULT NULL,
+`facility_desc` varchar(200) DEFAULT NULL,
+ PRIMARY KEY (`id`),
+ FOREIGN KEY (`hotel_id`) REFERENCES `hotel` (`hotel_id`)
+);
+
+
+Room
+
+CREATE TABLE `room` (
+`room_id` int NOT NULL AUTO_INCREMENT,
+`hotel_id` int DEFAULT NULL,
+`capacity` int DEFAULT NULL,
+`room_name` varchar(50) DEFAULT NULL,
+`price` int DEFAULT NULL,
+`room_thumb_img` varchar(200) DEFAULT NULL,
+`included_in` varchar(200) DEFAULT NULL, 
+ PRIMARY KEY (`room_id`),
+ FOREIGN KEY (`hotel_id`) REFERENCES `hotel` (`hotel_id`)
+);
+
+
+Room Details
+
+CREATE TABLE `roomdetails` (
+`id` int NOT NULL AUTO_INCREMENT,
+`room_id` int DEFAULT NULL,
+`room_features` varchar(200) DEFAULT NULL,
+ PRIMARY KEY (`id`),
+ FOREIGN KEY (`room_id`) REFERENCES `room` (`room_id`)
+);
+
+Guest
+
+CREATE TABLE `guest` (
+  `guest_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `mobile_no` varchar(70) DEFAULT NULL,
+  `address` varchar(200) DEFAULT NULL,
+  `country` varchar(50) DEFAULT NULL,
+  `state` varchar(50) DEFAULT NULL,
+  `zipcode` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`guest_id`)
+);
+
+
+Reservation
+
+ CREATE TABLE `reservation` (
+  `reservation_id` int NOT NULL AUTO_INCREMENT,
+  `room_id` int DEFAULT NULL,
+  `guest_id` int DEFAULT NULL,
+  `checkin` datetime DEFAULT NULL,
+  `checkout` datetime DEFAULT NULL,
+  `booking_id` int NOT NULL,
+   PRIMARY KEY (`reservation_id`),
+   FOREIGN KEY (`room_id`) REFERENCES `room` (`room_id`),
+   FOREIGN KEY (`guest_id`) REFERENCES `guest` (`guest_id`),
+   FOREIGN KEY (`booking_id`) REFERENCES `booking` (`booking_id`)
+);
+
+
+Booking
+
+create table `booking` (
+`booking_id` int not null auto_increment,
+`guest_id` int,
+`booking_date` DATETIME DEFAULT CURRENT_TIMESTAMP,
+`booking_status` int default 0,
+ PRIMARY KEY (`booking_id`), 
+ FOREIGN KEY (`guest_id`) REFERENCES `guest` (`guest_id`)
+);

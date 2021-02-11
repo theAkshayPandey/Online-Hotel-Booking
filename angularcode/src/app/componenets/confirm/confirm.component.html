@@ -1,0 +1,55 @@
+
+<div>
+    <mat-card class="empty-cart mat-elevation-z8">
+
+        <mat-card-title>
+          <img
+              src="assets/images/confirm.png"
+              alt="empty-cart"
+              width="50"
+              height="40"
+            /> Booking Confirmed
+        </mat-card-title>
+     
+      
+      <mat-card-content>
+        <div class="cart-div">
+         
+          <div class="booking-msg" style="margin-top: 20px;margin-bottom: 30px;">
+            Your Booking has been Confirmed.Please note the booking ID for further Assistance.
+          </div>
+         
+         
+         
+         
+         <div class="prder-status" style=" text-align: left;">
+          <table mat-table [dataSource]="dataSource" >
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="bookingid">
+              <th mat-header-cell *matHeaderCellDef> Booking ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.bookingid}} </td>
+            </ng-container>
+          
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef> status </th>
+              <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+         </div>
+         
+        </div>
+      </mat-card-content>
+    
+    
+    </mat-card>
+  </div>
+

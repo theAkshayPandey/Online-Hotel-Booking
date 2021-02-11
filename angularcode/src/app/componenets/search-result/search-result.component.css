@@ -1,0 +1,146 @@
+.serach-data {
+
+    height: 200%;
+
+}
+
+.label-class {
+    
+    margin: 0px;
+    display: inline-block;
+
+    padding-left: 4px;
+    font-size: smaller;
+    font-weight: 400    ;
+    padding-right: 27px;
+}
+.font11 {
+    font-size: 11px;
+    line-height: 11px;
+}
+.font12 {
+    font-size: 12px;
+    line-height: 12px;
+}
+.font16 {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.font22 {
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.font26 {
+    font-size: 26px;
+    line-height: 26px;
+}
+.grayText {
+    color: #9b9b9b;
+}
+
+/* /////////////////////////////////////////////// */
+
+::ng-deep .custom-slider .ngx-slider .ngx-slider-selection {
+    background: rgb(153,189,155) !important;
+  }
+
+.custom-slider {
+    width: 150px;
+
+}
+
+
+::ng-deep .ngx-slider .ngx-slider-pointer {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    top: -14px;
+    background-color: #a1a4a5 !important;
+    z-index: 3;
+    border-radius: 16px;
+}
+
+
+::ng-deep .custom-slider .ngx-slider .ngx-slider-pointer {
+    width: 8px;
+    height: 16px;
+    top: auto; /* to remove the default positioning */
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+::ng-deep .ngx-slider .ngx-slider-pointer:after {
+    content: none !important;
+}
+
+
+.covidCard {
+    padding: 20px;
+    border: 1px #cecece solid;
+    background: linear-gradient(90deg, #ffffff, #ffeeed);
+    border-radius: 4px;
+}
+
+
+.hotel-listing
+{
+    padding: 0px;
+    border: 1px #cecece solid;
+    background: linear-gradient(90deg, #ffffff, #ffeeed);
+    border-radius: 4px;
+    margin-top: 19px;
+}
+
+
+.covidCard__list2 {
+    padding-left: 30px;
+}
+.dam { display: inline-block; 
+    padding-right: 7px;
+}
+
+.fontdata{
+    padding-left: 4px;
+}
+
+
+
+.imgThumb {
+    width: 56px;
+    height: 50px;
+    margin-right: 5px;
+    overflow: hidden;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    opacity: 0.8;
+    transition: all 0.3s linear;
+}
+
+.cat
+{
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.iconAmenity {
+    height: 24px;
+    width: 24px;
+}
+
+.filterList1
+{
+    padding-inline-start: 0px !important;
+}
+
+.form-rounded {
+    border-radius: 1rem;
+    outline: none;
+}
+

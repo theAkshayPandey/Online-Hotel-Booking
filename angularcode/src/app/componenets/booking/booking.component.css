@@ -1,0 +1,49 @@
+.cart-div {
+  text-align: center;
+  padding: 2em;
+}
+.spacing {
+  margin-top: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-bottom:50px ;
+
+}
+.cart-items {
+  width: 1050px;
+  padding: 0px;
+  margin-right:20px ;
+
+}
+.order-div {
+  width: 350px;
+  height: 400px;
+  padding: 0px;
+  left: 40px;
+  position: relative !important;
+  /* width: 100%; */
+  padding-left: 15px;
+
+}
+.btn-size {
+  width: 250px;
+  height: 50px;
+  font-size: large;
+  color: white;
+  background-color: #9933ff;
+}
+
+.Register-card {
+  width: auto;
+}
+
+.reg-in {
+  width: 90%;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

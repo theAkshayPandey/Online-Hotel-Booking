@@ -1,0 +1,178 @@
+
+-- make hotel_id unique
+
+create table abouthotel (
+id int auto_increment not null,
+hotel_id int,
+description varchar(2000),
+PRIMARY KEY (id),
+FOREIGN KEY (hotel_id) REFERENCES hotel(hotel_id)
+);
+ 
+ 
+ 
+insert into abouthotel (hotel_id,description)  values(1,"Set in South Delhi, Eros Hotel New Delhi, Nehru Place features an outdoor swimming pool and a fitness centre. It is a 5-minute walk from Nehru Place Metro Station and 2.9 km from the Lotus Temple. Free private parking and WiFi is available. Each room is carpeted and features a bathtub and air conditioning. A flat-screen TV with satellite channels and a minibar is provided in all rooms. Other facilities include a bathrobe and free toiletries. Facilities at the property include a business centre and a meeting room. Guests can enjoy a meal in the 3 dining options available at the property. Blooms is the all-day dining multi cuisine restaurant; Empress of China specializes in Chinese delights and Singh Sahib celebrates the cuisine of Undivided Punjab. In addition to above, the hotel also has Tea Lounge that serves light gourmet fare with a choice of coffee or tea; Sweet N Crusty offers a delightful range of decadent desserts, scrumptious snacks and beverages whereas Lounge AND Bar serves classic cocktails, wide range of premium wines, champagne, single malts, spirits, and cigars.");
+insert into abouthotel (hotel_id,description)  values(2,"Set in South Delhi, Eros Hotel New Delhi, Nehru Place features an outdoor swimming pool and a fitness centre. It is a 5-minute walk from Nehru Place Metro Station and 2.9 km from the Lotus Temple. Free private parking and WiFi is available. Each room is carpeted and features a bathtub and air conditioning. A flat-screen TV with satellite channels and a minibar is provided in all rooms. Other facilities include a bathrobe and free toiletries. Facilities at the property include a business centre and a meeting room. Guests can enjoy a meal in the 3 dining options available at the property. Blooms is the all-day dining multi cuisine restaurant; Empress of China specializes in Chinese delights and Singh Sahib celebrates the cuisine of Undivided Punjab. In addition to above, the hotel also has Tea Lounge that serves light gourmet fare with a choice of coffee or tea; Sweet N Crusty offers a delightful range of decadent desserts, scrumptious snacks and beverages whereas Lounge AND Bar serves classic cocktails, wide range of premium wines, champagne, single malts, spirits, and cigars.");
+insert into abouthotel (hotel_id,description)  values(3,"Set in South Delhi, Eros Hotel New Delhi, Nehru Place features an outdoor swimming pool and a fitness centre. It is a 5-minute walk from Nehru Place Metro Station and 2.9 km from the Lotus Temple. Free private parking and WiFi is available. Each room is carpeted and features a bathtub and air conditioning. A flat-screen TV with satellite channels and a minibar is provided in all rooms. Other facilities include a bathrobe and free toiletries. Facilities at the property include a business centre and a meeting room. Guests can enjoy a meal in the 3 dining options available at the property. Blooms is the all-day dining multi cuisine restaurant; Empress of China specializes in Chinese delights and Singh Sahib celebrates the cuisine of Undivided Punjab. In addition to above, the hotel also has Tea Lounge that serves light gourmet fare with a choice of coffee or tea; Sweet N Crusty offers a delightful range of decadent desserts, scrumptious snacks and beverages whereas Lounge AND Bar serves classic cocktails, wide range of premium wines, champagne, single malts, spirits, and cigars.");
+insert into abouthotel (hotel_id,description)  values(4,"Set in South Delhi, Eros Hotel New Delhi, Nehru Place features an outdoor swimming pool and a fitness centre. It is a 5-minute walk from Nehru Place Metro Station and 2.9 km from the Lotus Temple. Free private parking and WiFi is available. Each room is carpeted and features a bathtub and air conditioning. A flat-screen TV with satellite channels and a minibar is provided in all rooms. Other facilities include a bathrobe and free toiletries. Facilities at the property include a business centre and a meeting room. Guests can enjoy a meal in the 3 dining options available at the property. Blooms is the all-day dining multi cuisine restaurant; Empress of China specializes in Chinese delights and Singh Sahib celebrates the cuisine of Undivided Punjab. In addition to above, the hotel also has Tea Lounge that serves light gourmet fare with a choice of coffee or tea; Sweet N Crusty offers a delightful range of decadent desserts, scrumptious snacks and beverages whereas Lounge AND Bar serves classic cocktails, wide range of premium wines, champagne, single malts, spirits, and cigars.");
+insert into abouthotel (hotel_id,description)  values(5,"Set in South Delhi, Eros Hotel New Delhi, Nehru Place features an outdoor swimming pool and a fitness centre. It is a 5-minute walk from Nehru Place Metro Station and 2.9 km from the Lotus Temple. Free private parking and WiFi is available. Each room is carpeted and features a bathtub and air conditioning. A flat-screen TV with satellite channels and a minibar is provided in all rooms. Other facilities include a bathrobe and free toiletries. Facilities at the property include a business centre and a meeting room. Guests can enjoy a meal in the 3 dining options available at the property. Blooms is the all-day dining multi cuisine restaurant; Empress of China specializes in Chinese delights and Singh Sahib celebrates the cuisine of Undivided Punjab. In addition to above, the hotel also has Tea Lounge that serves light gourmet fare with a choice of coffee or tea; Sweet N Crusty offers a delightful range of decadent desserts, scrumptious snacks and beverages whereas Lounge AND Bar serves classic cocktails, wide range of premium wines, champagne, single malts, spirits, and cigars.");
+
+
+
+create table hotelfacility (
+id int auto_increment not null,
+hotel_id int,
+facility_name varchar(50),
+facility_desc varchar(200),
+PRIMARY KEY (id),
+FOREIGN KEY (hotel_id) REFERENCES hotel(hotel_id)
+);
+
+insert into hotelfacility(hotel_id,facility_name,facility_desc) values (1,"FOOD AND DRINKS","Cafe,Bar,Restaurant,Dining Area,Coffee Shop,Kids' Meals"),
+																	   (1,"FOOD AND DRINKS","Cafe,Bar,Restaurant,Dining Area,Coffee Shop,Kids' Meals"),
+																	   (1,"FOOD AND DRINKS","Cafe,Bar,Restaurant,Dining Area,Coffee Shop,Kids' Meals"),
+																	   (1,"FOOD AND DRINKS","Cafe,Bar,Restaurant,Dining Area,Coffee Shop,Kids' Meals"),
+																	   (1,"FOOD AND DRINKS","Cafe,Bar,Restaurant,Dining Area,Coffee Shop,Kids' Meals"),
+																	   (1,"FOOD AND DRINKS","Cafe,Bar,Restaurant,Dining Area,Coffee Shop,Kids' Meals");
+
+
+
+create table hotel (
+hotel_id int,
+hotel_name varchar(50),
+location_id varchar(50),
+PRIMARY KEY (hotel_id)
+);
+-- add address in hotel
+
+
+
+
+select * from hotel;
+alter table hotel  
+add hotel_location VARCHAR(50),
+add hotel_sub_location VARCHAR(50),
+add hotel_facilities VARCHAR(100),
+add hotel_rating VARCHAR(20);
+
+alter table hotel add hotel_type varchar(100);
+
+
+
+
+update hotel set hotel_type = "Apartment" where hotel_id = 1;
+update hotel set hotel_type = "Hotel" where hotel_id = 2;
+update hotel set hotel_type = "Homestay" where hotel_id = 3;
+update hotel set hotel_type = "Hostel" where hotel_id = 4;
+update hotel set hotel_type = "Apartment" where hotel_id = 5;
+update hotel set hotel_type = "BnB" where hotel_id = 6;
+
+
+update hotel set hotel_location = "Delhi",
+hotel_facilities="Doctor on Call,Kitchenette,Living Room",
+hotel_sub_location="Canacona",hotel_rating="3" where hotel_id = 2;
+
+update hotel set hotel_location = "Delhi",
+hotel_facilities="Doctor on Call,Kitchenette,Living Room",
+hotel_sub_location="kamam",hotel_rating="4" where hotel_id = 3;
+
+update hotel set hotel_location = "Delhi",
+hotel_facilities="Doctor on Call,Kitchenette,Living Room",
+hotel_sub_location="sama",hotel_rating="4" where hotel_id = 4;
+
+
+update hotel set hotel_location = "Delhi",
+hotel_facilities="Doctor on Call,Kitchenette,Living Room",
+hotel_sub_location="yuias",hotel_rating="5" where hotel_id = 5;
+
+
+
+
+update hotel set location_id = 1 where hotel_id = 2;
+desc hotel;
+insert into hotel values(1,"Hotel1","1"),(2,"Hotel2","2"),(3,"Hotel3","3"),(4,"Hotel4","4"),
+						(5,"Hotel5","5"),(6,"Hotel6","6"),(7,"Hotel7","7"),(8,"Hotel8","8"),
+                        (9,"Hotel9","9"),(10,"Hotel10","10");
+select * from hotel;
+
+alter table hotel add facality varchar(200);
+
+
+
+create table room (
+room_id int,
+hotel_id int,
+capacity int,
+room_name varchar(50),
+PRIMARY KEY (room_id),
+FOREIGN KEY (hotel_id) REFERENCES hotel(hotel_id)
+);
+
+
+-- add room facilities like  Room Size: 324 sq.ft
+-- Bed Type: 1 King bed or 2 Twin Bed(s)
+-- Interconnected Room
+-- 24-hour Room Service
+-- Air Conditioning (Centralized)
+-- Free Wi-Fi
+
+
+desc room;
+
+alter table room add price int;
+insert into room values(1,1,2,"regular"),(2,1,2,"Delux"),(3,1,2,"private"),
+						(4,2,2,"regular"),(5,2,2,"Delux"),(6,2,2,"private"),
+                        (7,3,2,"regular"),(8,3,2,"Delux"),(9,3,2,"private"),
+                        (10,4,2,"regular"),(11,4,2,"Delux"),(12,4,2,"private"),
+                        (13,5,2,"regular"),(14,5,2,"Delux"),(15,5,2,"private"),
+                        (16,6,2,"regular"),(17,6,2,"Delux"),(18,6,2,"private");
+
+update room set price = 300 where room_id  = 1;
+update room set price = 500 where room_id  = 2;
+update room set price = 600 where room_id  = 3;
+               
+               
+update room set price = 300 where room_id  = 7;
+update room set price = 500 where room_id  = 6;
+update room set price = 400 where room_id  = 4;
+
+select * from room;
+drop table room;
+
+create table guest (
+guest_id int,
+guest_name varchar(50),
+guest_mobile_no varchar(70),
+PRIMARY KEY (guest_id)
+);
+desc guest;
+insert into guest values(1,"aman","9999999999"),(2,"bishnu","8888888888"),(3,"chetan","7777777777"),
+						(4,"dhruv","6666666666"),(5,"Faisal","5555555555"),(6,"kartik","44444444444");
+
+
+
+create table reservation (
+reservation_id int,
+room_id int,
+guest_id int,
+checkin datetime,
+checkout datetime,
+PRIMARY KEY (reservation_id),
+FOREIGN KEY (room_id) REFERENCES room(room_id),
+FOREIGN KEY (guest_id) REFERENCES guest(guest_id)
+);
+desc reservation;
+select * from reservation;
+
+
+
+insert into reservation values  (1,1,1,"2021-01-14 10:10:10","2021-01-16 10:10:10"),
+								(2,2,2,'2021-01-15 10:10:10','2021-01-17 10:10:10'),
+                                (3,3,3,'2021-01-14 10:10:10','2021-01-16 10:10:10'),
+                                (4,4,4,'2021-01-19 10:10:10','2021-01-21 10:10:10');
+
+
+select * from room;
+
+ select count(room_id) as total_room,hotel_id,sum(capacity) as total_capacity from  room where room_id not in (1,2) group by hotel_id having total_capacity > 6;
+

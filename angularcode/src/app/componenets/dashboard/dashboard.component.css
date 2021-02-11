@@ -1,0 +1,583 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: fff;
+    color: #5d5d5d;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+    font-size: 20px;
+    overflow-x: hidden;
+}
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+section {
+   padding: 80px 0; 
+   height: 57%;
+}
+
+.box {
+    padding: 1%;
+
+}
+/* h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+
+} */
+
+
+/* h1, 
+h2,
+h3 {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+} */
+
+h1 {
+    margin: 0;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 240%;
+    word-spacing: 4px;
+}
+
+
+
+h3 {
+    font-size: 110%;
+    /* margin-bottom: 15px; */
+}
+
+/* h2:after {
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+} */
+
+/* --- PARAGRAPHS --- */
+
+.long-copy {
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.box p {
+    font-size: 90%;
+    line-height: 145%;
+}
+
+
+/* -------------------------------------- */
+/* MEALS */
+/* -------------------------------------- */
+
+.section-features .long-copy {
+    margin-bottom: 30px;
+}
+
+.section-meals {
+    padding: 0;
+}
+
+.meals-showcase {
+    list-style: none;
+    width: 100%;
+}
+
+.meals-showcase li {
+    display: block;
+    float: left;
+    width: 25%;
+}
+
+.meal-photo {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+.meal-photo img {
+    opacity: 0.7;
+    width: 100%;
+    height: auto;
+    -webkit-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    transform: scale(1.15);
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.meal-photo img:hover {
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
+    opacity: 1;
+}
+
+/* -------------------------------------- */
+/* WORKS SECTION */
+/* -------------------------------------- */
+
+.section-steps {
+    background-color: #f4f4f4;
+}
+
+.steps-box:first-child {
+    margin-top: 30px;
+    text-align: right;
+    padding-right: 3%;
+}
+
+.steps-box:last-child {
+    margin-top: 70px;
+    text-align: left;
+    padding-left: 3%;
+}
+
+.app-screen {
+    width: 40%;
+}
+
+.works-step {
+    margin-bottom: 50px;
+}
+
+.works-step:last-of-type {
+    margin-bottom: 80px;
+}
+
+.works-step div {
+    color: #e67e22;
+    border: 2px solid #e67e22;
+    display: inline-block;
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    font-size: 150%;
+    margin-right: 25px;
+}
+
+.btn-app:link,
+.btn-app:visited {
+    border: 0;
+}
+
+.btn-app img {
+    height: 50px;
+    width: auto;
+    margin-right:10px;
+}
+
+/* -------------------------------------- */
+/* CITIES */
+/* -------------------------------------- */
+
+.section-cities img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+
+.city-feature {
+    margin-bottom: 5px;
+}
+
+/* -------------------------------------- */
+/* TESTIMONIALS */
+/* -------------------------------------- */
+
+.section-testimonials {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    
+}
+
+blockquote {
+    padding: 2%;
+    font-style: italic;
+    line-height: 145%;
+    position: relative;
+    margin-top: 40px;
+}
+
+blockquote:before {
+    content: "\201C";
+    font-size: 500%;
+    display: block;
+    position: absolute;
+    
+    top: -5px;
+    left: -5px;
+}
+
+cite {
+    font-size: 90%;
+    margin-top: 25px;
+    display: block;   
+}
+
+
+cite img {
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* -------------------------------------- */
+/* SECTION PLANS */
+/* -------------------------------------- */
+
+.section-plans {
+    background-color: #f4f4f4;
+}
+
+.plan-box {
+    background-color: #fff;
+    border-radius: 5px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.plan-box div {
+    padding: 15px;
+    border-bottom: 1px solid #e6e5e5;
+    box-shadow: 0 2px 2px #efefef;
+    
+}
+
+.plan-price {
+    font-size: 300%;
+    margin-bottom: 10px;
+    font-weight: 100;
+    color: #e67e22;
+}
+
+.plan-box span {
+    font-weight: 300;
+    font-size: 30%;
+}
+
+.plan-price-meal {
+    font-size: 80%;
+}
+
+.plan-box ul {
+    list-style: none;
+}
+
+.plan-box li {
+    padding: 5px 0;
+    
+}
+
+.plan-box div:first-child {
+    background-color: #fcfcfc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.plan-box div:last-child {
+    text-align: center;
+    border-bottom: transparent;
+}
+
+/* -------------------------------------- */
+/* CONTACT FORM */
+/* -------------------------------------- */
+
+.contact-form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+input[type=text],
+input[type=email],
+select,
+textarea {
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+}
+
+textarea {
+    height: 100px;
+}
+
+input[type=checkbox] {
+    margin: 10px 5px 10px 0;
+}
+
+*:focus {
+    outline: none;
+}
+
+::ng-deep mat-form-field
+{
+    background-color: rgb(248, 245, 245);
+}
+
+
+.hcat {
+    max-width: 950px;
+    margin: 0px auto;
+    text-align: center;
+    position: relative;
+    background-color: whitesmoke;
+
+    
+    color: black;
+    border: black;
+}
+
+
+
+.hcat-1 {
+    max-width: 900px;
+    margin: 0px auto;
+    text-align: left;
+    position: relative;
+    padding: .75em .75em 0 .75em;
+    color: floralwhite;
+    
+}
+
+.title {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+
+}
+.mat-form-field {
+    padding: 2px;
+}
+
+
+.mat-button-data {
+    height: 51px;
+    width: 123px;
+    font-size: 18px;
+    position: relative;
+    top: -6px;
+    left: 3px;
+}
+
+
+/* search-data */
+.section-steps
+{
+    height: 100%;
+}
+
+/* h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+
+} */
+
+
+/* h1, 
+h2,
+h3 {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+} */
+
+.noimage {
+    /* background-image: url('..\..\..\assets\images\bkimg2.jpg'); */
+    
+    background-image: url('..\..\..\assets\images\cathome3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    height: 74%;
+    
+}
+
+/* 
+ asssssssssssssssssssssssss
+*/
+::ng-deep .mat-form-field-wrapper{
+    /* background-color: white; */
+    margin-bottom: -1.25em;
+
+}
+
+#c1 {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 100px; /* Should be removed. Only for demonstration */
+  }
+  #c2 {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 100px; /* Should be removed. Only for demonstration */
+  }
+  #c3 {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 100px; /* Should be removed. Only for demonstration */
+  }
+
+  .column11 {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+
+ .card-title {
+    font-family: rubik-regular;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: normal;
+    color: rgb(47, 31, 41);
+}
+
+.grid-container {
+    display: grid;
+    grid-column-gap: 30px;
+    grid-template-columns: auto auto auto;
+    padding: 40px;
+  }
+  
+  .grid-container1 {
+    grid-template-columns: auto;
+    padding-left: 40px;
+  }
+
+  .grid-container2 {
+    display: grid;
+    grid-column-gap: 30px;
+    grid-template-columns: 50% 50%;
+    padding-left: 40px;
+  }
+
+  .grid-container3
+  {
+    padding: 40px;
+    grid-column-gap: 30px;
+    grid-template-columns: auto auto auto;
+  }
+
+
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    font-size: 16px;
+    text-align: left;
+    line-height: 28px;
+  }
+
+
+  .titlenew {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: normal;
+    color: rgb(50, 37, 45);
+    margin-bottom: 10px;
+    padding-left: 40px;
+}
+
+
+.postion-down
+{
+    position: inherit;
+    padding-top: 60px;
+}
+
+/* /sadassssssssssssssssssssssssssssssssssssss */
+
+.iconDetails {
+    margin-left: 5%;
+    margin-right: 7%;
+   float:left; 
+   height:40px;
+   width:40px; 
+   } 
+   
+   .container2 {
+       width:auto;
+       height:auto;
+       padding:2%;
+   }
+   
+   h4 {
+       margin:0px;
+   }
+
+   mat-expansion-panel {
+    width: 60%;
+    height: 60px;
+  }
+
+
+  .mat-body p, .mat-body-1 p, .mat-typography p {
+    margin: 0 0 -2px;
+}
+
+.exp-space {
+
+    margin: auto; 
+    padding: 10px   
+}
+
+#catback {
+    background-image: url('..\..\..\assets\images\catbackground.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+
+.search-bar-menu {
+    position: inherit;
+    padding-top: 60px;
+
+}
+
+/* ::ng-deep .mat-calendar-header {
+display: none;
+} */
+
+
+::ng-deep .mat-button
+{
+    display: none;
+}

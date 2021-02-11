@@ -1,0 +1,213 @@
+<div class="serach-data">
+
+    <div class="row" style="padding: 20px;" *ngIf="data_available">
+
+
+        <div class="col-2 " style="padding-left: 29px;">
+
+            <p style="font-size: 20px; line-height: 20px; ;">Select Filters</p>
+
+
+
+
+            <div class="filterRow" style="padding: 20px 0;">
+                <div class="filter-title" style="font-size: 16px; line-height: 16px; margin-bottom: 5px;">Search by Hotel Name</div>
+                <div class="filterList">
+                    
+                    <input  [(ngModel)]="HotelName" class="form-rounded" >
+                    
+                </div>
+                
+            </div>
+
+
+
+            <div class="filterRow" style="padding: 20px 0;" *ngIf="sublocation">
+                <div class="filter-title" style="font-size: 16px; line-height: 16px; margin-bottom: 5px;">Locality
+                </div>
+
+
+                <ul class="filterList" style="list-style-type:none; padding-left: 0px;" >
+                    <li *ngFor="let local of sublocation">
+                        <input type="checkbox" name="name1" [(ngModel)]="local.isChecked" (change)="changeSelection('location')">
+                        <label for="name1" class="label-class">{{local.locality}}</label>
+                    </li>
+                </ul>
+
+
+            </div>
+
+            <div class="filterRow" style="padding: 20px 0;" *ngIf="totalstarlist">
+                <div class="filter-title" style="font-size: 16px; line-height: 16px; margin-bottom: 5px;">Star
+                    Category</div>
+
+                <ul class="filterList" style="list-style-type:none; padding-left: 0px;">
+                    <li *ngFor="let st of totalstarlist">
+                        <input type="checkbox" name="name1" [(ngModel)]="st.isChecked" (change)="changeSelection('star')" >
+                        <label for="name1" class="label-class">{{st.star}} star</label>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="filterRow" style="padding: 20px 0;" *ngIf="propertytypelist">
+                <div class="filter-title" style="font-size: 16px; line-height: 16px; margin-bottom: 5px;">Property
+                    Type</div>
+
+                <ul class="filterList" style="list-style-type:none; padding-left: 0px;">
+                    <li *ngFor="let prp of propertytypelist">
+                        <input type="checkbox" name="name1"  [(ngModel)]="prp.isChecked" (change)="changeSelection('property')" >
+                        <label for="name1" class="label-class">{{prp.property}}</label>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="col-9">
+            <div class="filter-bar">
+
+                <div class="covidCard">
+                    <div class="covidCard__header">
+                        <p class="latoBlack font22 blackText appendBottom3" style="font-weight: bold;">Important
+                            Information</p>
+                        <p class="font16 lineHight20 appendBottom15">We request you to keep track of latest guideline
+                            and restrictions.</p>
+                    </div>
+                    <div class="covidCard__desc">
+                        <div class="covidCard__descLeft">
+                            <p class="makeFlex hrtlCenter appendBottom8">
+                                <span class="appendRight10">
+                                    <img width="20" src="https://promos.makemytrip.com/COVID/mysafety-120.png" alt="">
+                                </span>
+
+                                <span class="latoBlack font16 blackText 111" style="padding-left: 7px;">
+                                    <font color="#008CFF"><b>My Safety - Safe and Hygienic Stays</b> </font>
+                                </span>
+                            </p>
+
+                            <ul class="covidCard__list2 filterList" style="list-style-type:none;">
+                                <li class="dam"><span class="appendRight5"> <img width="14"
+                                            src="http://promos.makemytrip.com/COVID/GreenCircular.png"
+                                            alt=""></span><span class="">
+                                        <font class="fontdata" color="#000000">Sanitized Environment</font>
+                                    </span></li>
+                                <li class="dam"><span class="appendRight5"> <img width="14"
+                                            src="http://promos.makemytrip.com/COVID/GreenCircular.png"
+                                            alt=""></span><span class="">
+                                        <font class="fontdata" color="#000000">Trained Staff</font>
+                                    </span></li>
+                                <li class="dam"><span class="appendRight5"> <img width="14"
+                                            src="http://promos.makemytrip.com/COVID/GreenCircular.png"
+                                            alt=""></span><span class="">
+                                        <font class="fontdata" color="#000000">Safe Practices</font>
+                                    </span></li>
+                                <li class="dam"><span class="appendRight5"> <img width="14"
+                                            src="http://promos.makemytrip.com/COVID/GreenCircular.png"
+                                            alt=""></span><span class="">
+                                        <font class="fontdata" color="#000000">Safe Dining</font>
+                                    </span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="hotel-listing" *ngFor="let hotel of hoteldatalist|filter:HotelName:'hotel_name'|filterbylocality:checkedLocation|filterbyproperty:checkedProperty|filterbystar:checkedStar">
+                    <div class="row" style="padding: 20px;">
+                        <div class="imagedata col-5">
+                            <div class="imgCont">
+                                <img [src]="hotel.hotel_thumb_image" alt="" srcset="" style="    height: 162px;
+                                width: 238px;">    
+                                
+                                <!-- <img src="assets/images/hotel1.PNG" alt="" srcset="" style="    height: 162px;
+                                width: 238px;">                        -->
+                            </div>
+
+                          
+
+                        </div>
+
+                        <div class="infodata col-5" style="    position: relative;
+                            right: 159px;padding: 14px;">
+                            <div class="row">
+                                
+                                <div class="hotelname font22 col-8" >
+                                    <a [routerLink]="['/hotel-detail',hotel.hotel_id,hotel.room_id]"><p>{{hotel.hotel_name}}</p></a>
+                                    
+                                </div>
+
+                                <div class="hotelname font11 col-3">
+                                    <span style="font-size: 10px;" style="background-color: yellowgreen;" *ngIf="hotel.hotel_rating >3;else elseBlock"> {{hotel.hotel_rating}} Excellent</span>
+                                                <ng-template #elseBlock> <span style="font-size: 12px;" style="background-color: yellow" > {{hotel.hotel_rating}} Good</span> </ng-template>
+                             
+                                    <!-- <p style="padding-top:2px ;">36 Rating</p> -->
+                                </div>
+                            </div>
+
+                            <div class="row cat">
+                                <div class="location-card">
+                                    <p>{{hotel.sub_location}} </p>
+                                </div>
+
+                            </div>
+
+                            <ul class=" filterList1" style="list-style-type:none;padding-top:20px;">
+                                <li class="dam">
+                                    <div class="appendRight5">
+                                        <span class="font12">{{hotel.facility}}</span>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <div class="col-2">
+                            <div class="padding20 makeFlex column">
+                                <p class="makeFlex hrtlCenter right appendBottom10"><span
+                                        class="redText font12"><span> </span><span class="latoBold"
+                                            id="hlistpg_hotel_saved_price"></span></span><span
+                                        class="sprite discountIcon relative appendLeft5"><span
+                                            class="latoBold font11 whiteText discountText"
+                                            id="hlistpg_hotel_saved_price_percentage"></span></span></p>
+                                <p class="grayText font16 lineThrough appendBottom5" id="hlistpg_hotel_cut_price">
+                                    </p>
+                                <p class="latoBlack font26 blackText appendBottom5" id="hlistpg_hotel_shown_price">
+                                    INR {{hotel.room_price}}</p>
+                                <!-- <p class="font12 darkGreyText">+INR 405 taxes &amp; fees</p> -->
+                                <p class="font12 grayText appendBottom5">Per Night </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <div class="row" style="padding: 100px;" *ngIf="!data_available">
+        
+        <div class="col-4" style="padding-left: 60px;">
+            <h1 style="padding: 100px;">{{no_data_message}}</h1>
+        </div>
+
+
+        <div class="col-8">
+            <img style="padding-left:100px ;" src="assets/images/error.PNG" alt="">
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+
+</script>

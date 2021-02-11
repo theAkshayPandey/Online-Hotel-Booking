@@ -1,0 +1,44 @@
+  <nav class="navbar navbar-light bg-light clrchange">
+
+      <div class="navbar-header">
+        <a class="navbar-brand" routerLink=""> <img [src]="myimg" alt="" class="img-responsive"> </a>
+        
+       
+        
+      </div>
+      <ul class="nav navbar-nav navbar-center">
+        <!-- <li><a style="font-size: 17px;"> &nbsp; Hotels for Everyone</a></li>   -->
+        <span style="display: inline-flex;">
+            <div style="margin-left: 13vw; color: rgb(237, 82, 116); font-weight: bold; padding-top: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </span>
+      </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+          <li  *ngIf="!user">
+         
+          <a routerLink="/auth" routerLinkActive="active" style="top: 7px;font-weight: bold;font-size:18px;color: rgb(67,129,70);" >
+          LOGIN
+          </a>
+        
+          </li>
+
+
+      <span *ngIf="user" style="top: 7px;">
+          <button mat-button [matMenuTriggerFor]="menu" style="color: rgb(67,129,70);font-size: 18px;">
+              <span class="	glyphicon glyphicon-user"></span>&nbsp;&nbsp;
+              {{ user.name }}
+          </button>
+          <mat-menu #menu="matMenu">
+              <a routerLink="/login" (click)="logout()">
+                  <button mat-menu-item style="color: rgb(67,129,70);font-size: 18px;" >Logout</button></a>
+          </mat-menu>
+      </span>
+
+      </ul>
+   
+  </nav>
+ 

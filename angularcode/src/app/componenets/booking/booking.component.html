@@ -1,0 +1,131 @@
+<div>
+    <div  fxLayout="row" fxLayoutGap="10px" class="spacing row">
+        <div class="cart-items col-8" style="margin:0px ;">
+            <mat-card class="Register-card mat-elevation-z8">
+                <mat-card-header style="padding-bottom: 2em;">
+                    <mat-card-title>Confirm Booking</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form [formGroup]="bookingForm">
+                        <mat-form-field class="reg-in">
+                            <input matInput type="text" name="name" formControlName="name" placeholder="Enter Your Name"
+                                required>
+                        </mat-form-field>
+                        <mat-form-field class="reg-in">
+                            <input matInput type="email" name="email" formControlName="email" placeholder="E-mail" required>
+                            <!--- <mat-error *ngIf="email.invalid && email.errors.email">Invalid E-mail</mat-error> -->
+                        </mat-form-field>
+                        <mat-form-field class="reg-in">
+                            <input matInput type="tel" name="phoneNo" formControlName="phoneNo" maxlength="20"
+                                placeholder="Enter Your Phone Number" required>
+                        </mat-form-field>
+                        <mat-form-field class="reg-in">
+                            <input matInput type="text" maxlength="100" name="address" formControlName="address" placeholder="Enter Your Address"
+                                required>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field style="padding-right: 4em;">
+                            <input matInput type="text" maxlength="50" name="country" formControlName="country" placeholder="Country" required>
+                        </mat-form-field>
+                        <mat-form-field style="padding-left: 4em; padding-right: 4em;">
+                            <input matInput type="text" maxlength="50" name="state" formControlName="state" placeholder="State" required>
+                        </mat-form-field>
+                        <mat-form-field style="padding-left: 4em;">
+                            <input matInput type="text" maxlength="50" name="zipCode" formControlName="zipCode" placeholder="ZIP Code" required>
+                        </mat-form-field>
+                        <br>
+
+                        <hr>
+                        <br>
+                        <mat-card-header style="padding-bottom: 2em;">
+                            <mat-card-title>Booking Details</mat-card-title>
+                        </mat-card-header>
+                        <br>
+                        <mat-form-field style="padding-right: 2em;" >
+                            <mat-label>Checkin</mat-label>
+                            <input matInput     (dateChange)="updateCalcs()" [matDatepicker]="picker" [min]="minDate"
+                                [max]="maxDate" formControlName="entryDate" required>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                        <mat-form-field style="padding-right: 2em; ">
+                            <mat-label>Checkout</mat-label>
+                            <input matInput  [matDatepicker]="picker1" [min]="minDatep" [max]="maxDate"
+                                formControlName="exitDate" required>
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+                       
+                        <mat-form-field style="padding-right: 2em;">
+                            <mat-label>Room</mat-label>
+                            <mat-select  matInput name="roomNo" formControlName="roomNo" placeholder="Enter Number of Rooms">
+                                <mat-option *ngFor="let room of roomSelect" [value]="room.value">{{room.noOfRoom}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field style="padding-right: 2em;">
+                            <mat-select  matInput name="guest" formControlName="guest" placeholder="Guests">
+                                <mat-option *ngFor="let room of guestSelect" [value]="room.value">{{room.noOfGuest}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+    
+                    </form>
+                </mat-card-content>
+               
+                    <div style="padding-bottom: 10px; text-align: center;">
+                        <a routerLink="" routerLinkActive="active">
+                            <button mat-raised-button (click)="cancel()" class="btn-size">
+                                Discard Booking
+                            </button>
+                        </a>
+                    </div>
+               
+            </mat-card>
+        </div>
+        <div class="order-div col-3" >
+            <mat-card class="mat-elevation-z8">
+                <div style="text-align: center;">
+                    <mat-card-title style="padding-bottom: 2em;">
+                        Booking Summary:
+                    </mat-card-title>
+                </div>
+                <div fxLayout="row" fxLayoutGap="auto" style=" padding-bottom: 2px; font-size: large;">
+                    <span>Base Price :</span>
+                    <span>
+                        {{basePrice | currency: "&#8377;"}}
+                    </span>
+                </div>
+                <div fxLayout="row" fxLayoutGap="auto" style="font-size: large;">
+                    <span>No of Days : </span>
+                    <span>{{days}}</span>
+                </div>
+                <div fxLayout="row" fxLayoutGap="auto" style="font-size: large;">
+                    <span>No of Rooms : </span>
+                    <span>{{rooms}}</span>
+                </div>
+                <br>
+                <div fxLayout="row" fxLayoutGap="auto" style="font-size: large;">
+                    <span>Total : </span>
+                    <span>{{ totalPrice | currency: "&#8377;" }}</span>
+                </div>
+                <div fxLayout="row" fxLayoutGap="auto" style="padding-bottom: 8px; font-size: medium;">
+                    <span>GST @18% : </span>
+                    <span>+ {{ GST | currency: "&#8377;" }}</span>
+                </div>
+                <mat-divider></mat-divider>
+                <div fxLayout="row" fxLayoutGap="auto" style="padding-bottom: 2em; font-size: large; padding-top: 1.5em;">
+                    <span>Total Amount :</span>
+                    <span>
+                        <strong>{{ total | currency: "&#8377;" }}</strong>
+                    </span>
+                </div>
+                <div style="padding-bottom: 10px; text-align: center;">
+                    
+                        <button mat-raised-button (click)="bookNow()" class="btn-size">
+                            Book Now
+                        </button>
+                  
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
